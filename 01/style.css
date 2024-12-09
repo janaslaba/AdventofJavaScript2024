@@ -1,0 +1,133 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --robin-egg-blue: #26c9c3;
+  --seafoam-green: #cae3db;
+  --bunting: #191349;
+  --white: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.box {
+  position: relative;
+  top: 150px;
+  margin: 0 auto;
+  display: flex;
+  width: 1920px;
+  height: 1080px;
+}
+
+.left {
+  flex: 1 0 auto;
+  width: 1007px;
+  background-color: var(--seafoam-green);
+}
+.right {
+  flex: 1 0 auto;
+  height: 1080px;
+  width: 913px;
+}
+
+.password-box {
+  width: 751px;
+  height: 140px;
+  padding: 30px;
+  background-color: var(--robin-egg-blue);
+  border-radius: 16.23px;
+  position: absolute;
+  top: 800px;
+  left: 1107px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+.password-box::after {
+  content: " ";
+  background-color: var(--bunting);
+  border-radius: 50%;
+  position: absolute;
+  right: 35px;
+  width: 100px;
+  height: 100px;
+  transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.show-password.password-box::after {
+  height: 100%;
+  width: 100%;
+  right: 0;
+  border-radius: 16.23px;
+}
+
+.lock {
+  fill: var(--bunting);
+  z-index: 1;
+}
+
+.show-password .lock {
+  fill: var(--robin-egg-blue);
+}
+
+.lock,
+.eye--toggle,
+.password-inputfield {
+  padding: 20px;
+  overflow: visible;
+}
+
+.password-inputfield {
+  font-size: 40px;
+  background-color: var(--robin-egg-blue);
+  outline: none;
+  border: none;
+  border-left: 1px solid var(--white);
+  width: 440px;
+  z-index: 2;
+}
+
+.password-inputfield:focus {
+  outline: none;
+}
+
+.show-password .password-inputfield {
+  background-color: var(--bunting);
+  color: var(--white);
+}
+
+.eye--toggle {
+  cursor: pointer;
+  height: 100px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.show-password .eye--toggle {
+  background-color: var(--bunting);
+  stroke: var(--robin-egg-blue);
+}
+
+#upper--eyelid {
+  transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+  stroke: var(--robin-egg-blue);
+}
+
+.show-password #upper--eyelid {
+  transform: scaleY(-1);
+  transform-origin: 0px 70px;
+}
+
+.show-password .pupil {
+  fill: var(--bunting);
+  stroke: none;
+}
