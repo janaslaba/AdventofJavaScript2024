@@ -1,0 +1,172 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --input-backgroundcolor: #f3f3f3;
+  --input-border-color: #dadada;
+  --seafoam-green: #cae3db;
+
+  --selected-blue: #1aaaf2;
+
+  --font: Avenir;
+  --input-label: 42px;
+  --small-input-label: 32px;
+
+  --input-text: 42px;
+
+  --movie-title-size: 42px;
+  --movie-year-size: 32px;
+}
+body {
+  margin: 0;
+  font-family: var(--font);
+}
+
+.box {
+  position: relative;
+  top: 150px;
+  margin: 0 auto;
+  display: flex;
+  width: 1920px;
+  height: 1080px;
+}
+
+.left {
+  flex: 1 0 auto;
+  width: 1007px;
+  background-color: var(--seafoam-green);
+}
+
+.right {
+  flex: 1 0 auto;
+  height: 1080px;
+  width: 913px;
+}
+
+.dropdown-wrapper {
+  width: 781.12px;
+  height: 100px;
+  padding: 20px;
+  background-color: var(--input-backgroundcolor);
+  border-radius: 16.23px;
+  position: absolute;
+  top: 747px;
+  left: 1089px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+.field {
+  width: 100%;
+  transition: top 0.25s ease-in-out, left 0.25s ease-in-out;
+}
+
+input[type="text"] {
+  outline: none;
+  border: 0.5 solid var(--input-border-color);
+  border-radius: 16.23px;
+  width: 100%;
+  height: 100%;
+  font-size: var(--input-text);
+  font-family: var(--font);
+  background-color: inherit;
+  text-align: left;
+}
+
+input[type="text"]:focus {
+  border-bottom: 1px solid var(--input-border-color);
+  opacity: 1;
+}
+
+/* Styling the label */
+
+input[type="text"]:focus + .label--input {
+  top: -5px;
+  font-size: var(--small-input-label);
+  color: grey;
+}
+
+input[type="text"] + .label--input {
+  display: block;
+  font-size: var(--input-text);
+  font-family: var(--font);
+  position: absolute;
+  top: 26px;
+  left: 22px;
+  text-indent: 0px;
+  pointer-events: none;
+}
+
+/* Styling the placeholder */
+
+input[type="text"]::placeholder {
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+
+input[type="text"]:focus::placeholder {
+  opacity: 0;
+}
+
+input[type="text"]:not(:placeholder-shown) + .label--input {
+  top: -5px;
+  font-size: var(--small-input-label);
+  color: grey;
+}
+
+/* Button */
+
+.dropdown-button {
+  outline: none;
+  border: none;
+  height: 100%;
+  align-self: flex-start;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  height: 795.97px;
+  width: 781.12px;
+  position: absolute;
+  top: 819px;
+  left: 1089px;
+  padding: 0;
+  background-color: var(--input-backgroundcolor);
+  gap: 20px;
+}
+
+.visible {
+  display: block;
+}
+
+.dropdown-option {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+  border-bottom: 2px solid white;
+  cursor: pointer;
+}
+
+.dropdown-option:hover,
+.selected {
+  background-color: var(--selected-blue);
+  font-style: var(--input-backgroundcolor);
+}
+
+.movie-title {
+  font-size: var(--movie-title-size);
+}
+
+.movie-year {
+  font-size: var(--movie-year-size);
+}
